@@ -2,7 +2,8 @@
 // Endpoints and fields follow the Sarvam docs (https://docs.sarvam.ai).
 // This file only runs on the server, so the API key never reaches the browser.
 
-const BASE = "https://api.sarvam.ai";
+// Override with SARVAM_BASE_URL only for testing against a mock server.
+const BASE = process.env.SARVAM_BASE_URL ?? "https://api.sarvam.ai";
 
 export class SarvamError extends Error {
   status: number;

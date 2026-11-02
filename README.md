@@ -62,6 +62,21 @@ The Sarvam key is only used on the server (`lib/sarvam.ts`). The browser never s
   The wrapper sends only the base type (`audio/webm`).
 - Bulbul v4 Flash returns base64 audio (WAV) that must be decoded before playing.
 
+## Test it
+
+With the app running (`npm run dev`), open a second terminal in this folder and run:
+
+```
+npm run selftest
+```
+
+It calls the app's own routes and checks, in order: server and key, Sarvam-105B (English and Marathi prompts),
+Bulbul speech (English and Hindi, valid WAV), a Saaras round trip (Bulbul's audio transcribed back in verbatim,
+codemix and transcribe modes), the browser-style audio label fix, and clean rejection of bad input.
+Each check prints PASS or FAIL, and the command exits with an error code if anything fails.
+
+To test a deployed site: `npm run selftest -- https://your-app.vercel.app` (set `APP_PASSCODE` if you use one).
+
 ## Next steps
 
 See the build plan: record -> transcript with fillers -> pause detection -> clarity rubric -> rewrite -> stall hints.

@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "selftest": "node scripts/selftest.mjs"
   },
   "dependencies": {
     "next": "^16.4.3",
